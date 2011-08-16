@@ -1,9 +1,18 @@
-var path;
+function BullitHero(path, pos, speed) {
 
-function moveLeft() {
+	this.path = path;
+	this.pos = pos;
+	this.speed = speed;
 
-}
+	this.move = function(amount) {
+		this.pos += amount * speed;
+	}
 
-function moveRight() {
+	this.stepLeft = function() {
+		this.move(-1);
+	}
 
+	this.stepRight = function() {
+		this.move(1);
+	}
 }
