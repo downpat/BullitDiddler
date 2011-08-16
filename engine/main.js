@@ -1,11 +1,17 @@
+
+
 document.write('Fuuuuuuuu!!!!!!');
-document.write('<script type="text/javascript" src="./engine/BullitHero.js"></script>');
-document.write('<script type="text/javascript" src="./engine/BHRenderer.js"></script>');
+var body = document.getElementsByTagName('body')[0];
 
 var heroCan = document.createElement('canvas');
+heroCan.height = 500;
+heroCan.width = 500;
 
 var hero = new BullitHero(1, 200, 20);
 var heroRend = new BHRenderer(hero);
 
 heroRend.render(heroCan);
+
+body.appendChild(heroCan);
+
 
