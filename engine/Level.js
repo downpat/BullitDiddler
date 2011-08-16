@@ -1,0 +1,2 @@
+var userInput;
+var bulletList;
