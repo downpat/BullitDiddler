@@ -6,7 +6,7 @@ function BulletList(x, y, z)
     this.dt = 1
     this.indextop = 0
     
-    //normal
+    //normalad
     this.posx = {}
     this.posy = {}
     this.velx = {}
@@ -31,12 +31,49 @@ function BulletList(x, y, z)
     this.towardacc = {}
     
     
-    this.f = function(a, b, c)
+    this.f = makeBullet(x, y, angle)
     {
-       var local1, local2;
-       do_something_useful(a, b);
-       do_more_stuff(c);
-       return compute_result();
+        var i = this.indextop+''
+	this.posx[i] = x
+	this.posy[i] = y
+	this.velx[i] = 0
+	this.vely[i] = 0
+	this.accx[i] = 0
+	this.angle[i] = angle
+	this.thrustvel[i] = 0
+	this.thrustacc[i] = 0
+	this.turnvel[i] = 0
+	this.turnacc[i] = 0
+	this.userad[i] = false
+	this.targetx[i] = 0
+	this.targety[i] = 0
+	this.rotvel[i] = 0
+	this.rotacc[i] = 0
+	this.towardvel[i] = 0
+	this.towardacc[i] = 0
+	this.indextop++
+        return i
+    }
+
+    this.f = removeBullet(index)
+    {
+	delete this.posx[index]
+	delete this.posy[index]
+	delete this.velx[index]
+	delete this.vely[index]
+	delete this.accx[index]
+	delete this.angle[index]
+	delete this.thrustvel[index]
+	delete this.thrustacc[index]
+	delete this.turnvel[index]
+	delete this.turnacc[index]
+	delete this.userad[index]
+	delete this.targetx[index]
+	delete this.targety[index]
+	delete this.rotvel[index]
+	delete this.rotacc[index]
+	delete this.towardvel[index]
+	delete this.towardacc[index]
     }
     return;
 }
