@@ -32,7 +32,7 @@ for(var ia=0;ia<testc.length;ia++)
          for(var id=0;id<testc.length;id++)
          {
             var d = testc[id];
-            u = BMath.solveCubic(ia, ib, ic, id);
+            u = BMath.solveCubic(a, b, c, d);
             for(var ix=0;ix<u.length;ix++)
             {
                var x = u[ix];
@@ -42,10 +42,7 @@ for(var ia=0;ia<testc.length;ia++)
                {
                   print("Error with params "+a+", "+b+", "+c+", "+d);
                   print("   x="+x+"   y="+y);
-               }
-               else
-               {
-                  print("ok");
+                  BMath.solveCubic_verbose(a, b, c, d);
                }
             }
             
