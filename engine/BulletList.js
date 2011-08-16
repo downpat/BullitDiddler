@@ -75,6 +75,9 @@ function BulletList(x, y, z)
 	delete this.towardacc[index];
     };
 
+    //optimization notes:
+    //throw out dt altogether
+    //skip different physics types if the values will have no effect
     this.simulate = function()
     {
 	var dt = this.dt;
