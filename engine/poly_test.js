@@ -38,7 +38,7 @@ for(var ia=0;ia<testc.length;ia++)
                var x = u[ix];
                var y = ((a*x+b)*x+c)*x+d;
                
-               if (Math.abs(y) >= 0.000001)
+               if (Math.abs(y) >= 0.0001)
                {
                   print("Error with params "+a+", "+b+", "+c+", "+d);
                   print("   x="+x+"   y="+y);
