@@ -5,7 +5,7 @@ function BHRenderer(bullitHero, canvas) {
 
 	this.render = function() {
 		this.clearCanvas();
-		this.context.fillStyle='#FF0000';
+		this.context.fillStyle='#f00';
 		this.context.fillRect(this.bullitHero.pos,200,50,50);
 	}
 

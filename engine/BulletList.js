@@ -33,24 +33,24 @@ function BulletList()
     this.makeBullet = function(x, y, angle)
     {
         var i = this.indextop+'';
-	this.posx[i] = x;
-	this.posy[i] = y;
-	this.velx[i] = 0;
-	this.vely[i] = 0;
-	this.accx[i] = 0;
-	this.angle[i] = angle;
-	this.thrustvel[i] = 0;
-	this.thrustacc[i] = 0;
-	this.turnvel[i] = 0;
-	this.turnacc[i] = 0;
-	this.userad[i] = false;
-	this.targetx[i] = 0;
-	this.targety[i] = 0;
-	this.rotvel[i] = 0;
-	this.rotacc[i] = 0;
-	this.towardvel[i] = 0;
-	this.towardacc[i] = 0;
-	this.indextop++;
+		this.posx[i] = x;
+		this.posy[i] = y;
+		this.velx[i] = 0;
+		this.vely[i] = 0;
+		this.accx[i] = 0;
+		this.angle[i] = angle;
+		this.thrustvel[i] = 0;
+		this.thrustacc[i] = 0;
+		this.turnvel[i] = 0;
+		this.turnacc[i] = 0;
+		this.userad[i] = false;
+		this.targetx[i] = 0;
+		this.targety[i] = 0;
+		this.rotvel[i] = 0;
+		this.rotacc[i] = 0;
+		this.towardvel[i] = 0;
+		this.towardacc[i] = 0;
+		this.indextop++;
         return i;
     };
 

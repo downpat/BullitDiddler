@@ -1,5 +1,4 @@
 
-
 document.write('Fuuuuuuuu!!!!!!');
 var body = document.getElementsByTagName('body')[0];
 
@@ -15,4 +14,30 @@ body.appendChild(heroCan);
 //The bulk of the drawing work is going to be done in timers, not in the ui
 //object. For now, though, it works in UserInput for the purposes of testing
 //drawing on the canvas tag.
-var ui = UserInput(hero, heroRend, heroCan);
+var ui = new UserInput(hero);
+var bl = bulletMaker();
+var blRend = new BLRenderer(bl, heroCan);
+
+var renderers = [heroRend, blRend]
+
+var level1 = new Level(ui, bl, renderers);
+
+window.setInterval(level1.tick(), 50);
+
+function bulletMaker() {
+	var bulletList = new BulletList();
+
+	var i;
+	bulletList.dt = 1;
+
+	i = bulletList.makeBullet(10, 10, 0);
+	bulletList.velx[i] = 1;
+	bulletList.vely[i] = 2;
+
+	i = bulletList.makeBullet(300, 300, 0);
+	bulletList.targetx[i] = 280;
+	bulletList.targety[i] = 280;
+	bulletList.rotvel[i] = 1;
+
+	return bulletList;
+}
