@@ -6,6 +6,9 @@ function BulletList()
     this.dt = 1;
     this.indextop = 0;
     
+    //properties
+    this.radius = {};
+
     //normalad
     this.posx = {};
     this.posy = {};
@@ -33,11 +36,13 @@ function BulletList()
     this.makeBullet = function(x, y, angle)
     {
         var i = this.indextop+'';
+		this.radius[i] = 1;
 		this.posx[i] = x;
 		this.posy[i] = y;
 		this.velx[i] = 0;
 		this.vely[i] = 0;
 		this.accx[i] = 0;
+		this.accy[i] = 0;
 		this.angle[i] = angle;
 		this.thrustvel[i] = 0;
 		this.thrustacc[i] = 0;
@@ -56,6 +61,7 @@ function BulletList()
 
     this.removeBullet = function(index)
     {
+	delete this.radius[index];
 	delete this.posx[index];
 	delete this.posy[index];
 	delete this.velx[index];
@@ -75,6 +81,11 @@ function BulletList()
 	delete this.towardacc[index];
     };
 
+    this.setBasic(velx, vely, accx, accy) = function()
+    {
+	
+    };
+
     //optimization notes:
     //throw out dt altogether
     //skip different physics types if the values will have no effect
@@ -82,6 +93,7 @@ function BulletList()
     {
 	var dt = this.dt;
 	var d, vx, vy, radius, theta, cost, sint, dx, dy, dtor;
+	
 	for (i in this.posx)
 	{
 	    //basic movement
@@ -89,18 +101,18 @@ function BulletList()
 	    this.vely[i] += this.accy[i]*dt;
 	    this.posx[i] += this.velx[i]*dt;
 	    this.posy[i] += this.vely[i]*dt;
-
+	    
 	    //thrust movement
 	    this.thrustvel[i] += this.thrustacc[i]*dt;
 	    d = this.thrustvel[i]*dt;
 	    this.posx[i] += Math.cos(this.angle[i])*d;
 	    this.posy[i] += Math.sin(this.angle[i])*d;
-
+	    
 	    //turn physics
 	    this.turnvel[i] += this.turnacc[i]*dt;
 	    this.angle[i] += this.turnvel[i]*dt;
 	    this.angle[i] = this.angle[i] % 6.28318531;
-
+	    
 	    //rot physics
 	    this.rotvel[i] += this.rotacc[i]*dt;
 	    this.towardvel[i] += this.towardacc[i]*dt;
