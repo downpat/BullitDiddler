@@ -67,6 +67,7 @@ function BulletList()
 	delete this.velx[index];
 	delete this.vely[index];
 	delete this.accx[index];
+	delete this.accy[index];
 	delete this.angle[index];
 	delete this.thrustvel[index];
 	delete this.thrustacc[index];
