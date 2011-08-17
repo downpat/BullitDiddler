@@ -2,12 +2,11 @@
 //This is just a very rough start to get the movement going to begin with.
 //We should probably be passing the canvas to the renderer, not here.
 //In any case, this will need to be refactored next
-function UserInput(bullitHero, renderer, canvas) {
+function UserInput(bullitHero, renderer) {
 	this.bullitHero = bullitHero;
 	this.renderer = renderer;
-	this.canvas = canvas
 
-	this.renderer.render(this.canvas);
+	this.renderer.render();
 
 	this.onkeydown = function(event) {
 		var code = event.keyCode;
@@ -23,7 +22,7 @@ function UserInput(bullitHero, renderer, canvas) {
 				console.log('KeyCode: '+code);
 		}
 		
-		this.renderer.render(this.canvas);
+		this.renderer.render();
 	}
 
 }
