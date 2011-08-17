@@ -42,6 +42,7 @@ function BulletList()
 	this.velx[i] = 0;
 	this.vely[i] = 0;
 	this.accx[i] = 0;
+	this.accy[i] = 0;
 	this.angle[i] = angle;
 	this.thrustvel[i] = 0;
 	this.thrustacc[i] = 0;
