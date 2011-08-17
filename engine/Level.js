@@ -1,14 +1,11 @@
-var userInput;
-var bulletList = new BulletList();
+function Level(userInput, bulletList, renderables) {
+	this.userInput = userInput;
+	this.bulletList = bulletList;
 
-var i;
-bulletList.dt = 1;
-
-i = bulletList.makeBullet(10, 10, 0);
-bulletList.velx[i] = 1;
-bulletList.vely[i] = 2;
-
-i = bulletList.makeBullet(300, 300, 0);
-bulletList.targetx[i] = 280;
-bulletList.targety[i] = 280;
-bulletList.rotvel[i] = 1;
+	this.tick = function() {
+		this.bulletList.simulate();
+		for(i in renderables) {
+			renderables[i].render();
+		}
+	}
+}
