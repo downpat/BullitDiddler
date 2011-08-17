@@ -82,7 +82,7 @@ function BulletList()
 	delete this.towardacc[index];
     };
 
-    this.setBasic(velx, vely, accx, accy) = function()
+    this.setBasic = function(velx, vely, accx, accy)
     {
 	
     };
@@ -120,7 +120,7 @@ function BulletList()
 	    vx = this.posx[i] - this.targetx[i];
 	    vy = this.posy[i] - this.targety[i];
 	    radius = Math.sqrt(vx*vx + vy*vy);
-	    if (this.userad)
+	    if (this.userad[i])
 	    {
 		theta = this.rotvel[i]*dt;
 	    }

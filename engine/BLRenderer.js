@@ -11,8 +11,8 @@ function BLRenderer(bulletList, canvas) {
 			this.context.beginPath();
 			this.context.arc(loc_bl.posx[i], loc_bl.posy[i], 15, 0, Math.PI*2, true);
 			this.context.closePath();
+			this.context.fill();
 		}
-		this.context.fill();
 
 	}
 

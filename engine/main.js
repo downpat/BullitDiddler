@@ -22,13 +22,13 @@ var renderers = [heroRend, blRend]
 
 var level1 = new Level(ui, bl, renderers);
 
-window.setInterval(level1.tick(), 50);
+window.setInterval('level1.tick()', 50);
 
 function bulletMaker() {
 	var bulletList = new BulletList();
 
 	var i;
-	bulletList.dt = 1;
+	bulletList.dt = 3;
 
 	i = bulletList.makeBullet(10, 10, 0);
 	bulletList.velx[i] = 1;
