@@ -6,21 +6,21 @@ var heroCan = document.createElement('canvas');
 heroCan.height = 600;
 heroCan.width = 600;
 
+
 var hero = new BullitHero(1, 200, 20);
 var heroRend = new BHRenderer(hero, heroCan);
 
-body.appendChild(heroCan);
-//User input will be refactored next. It shouldn't need all these arguments.
-//The bulk of the drawing work is going to be done in timers, not in the ui
-//object. For now, though, it works in UserInput for the purposes of testing
-//drawing on the canvas tag.
 var ui = new UserInput(hero);
 var bl = bulletMaker();
 var blRend = new BLRenderer(bl, heroCan);
 
-var renderers = [heroRend, blRend]
+heroRend.render();
 
-var level1 = new Level(ui, bl, renderers);
+var renderers = [heroRend, blRend];
+
+var level1 = new Level(ui, bl, heroCan, renderers);
+
+body.appendChild(heroCan);
 
 window.setInterval('level1.tick()', 50);
 
