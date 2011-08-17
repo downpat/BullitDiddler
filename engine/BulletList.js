@@ -1,6 +1,6 @@
 /* Example BulletList constructor */
 
-function BulletList(x, y, z)
+function BulletList()
 {
     //global
     this.dt = 1;
