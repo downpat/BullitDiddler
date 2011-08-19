@@ -1,28 +1,33 @@
 
-document.write('Fuuuuuuuu!!!!!!');
-var body = document.getElementsByTagName('body')[0];
+var body, heroCan, hero, heroRend, ui, bl, blRend, renderers, level1;
 
-var heroCan = document.createElement('canvas');
-heroCan.height = 600;
-heroCan.width = 600;
+window.onload = function()
+{
+   console.log("in document.onLoad");
+   body = document.getElementsByTagName('body')[0];
 
+   heroCan = document.createElement('canvas');
+   heroCan.height = 600;
+   heroCan.width = 600;
 
-var hero = new BullitHero(1, 200, 20);
-var heroRend = new BHRenderer(hero, heroCan);
+   hero = new BullitHero(1, 200, 20);
+   heroRend = new BHRenderer(hero, heroCan);
 
-var ui = new UserInput(hero);
-var bl = bulletMaker();
-var blRend = new BLRenderer(bl, heroCan);
+   ui = new UserInput(hero);
+   bl = bulletMaker();
+   blRend = new BLRenderer(bl, heroCan);
 
-heroRend.render();
+   heroRend.render();
 
-var renderers = [heroRend, blRend];
+   renderers = [heroRend, blRend];
 
-var level1 = new Level(ui, bl, heroCan, renderers);
+   level1 = new Level(ui, bl, heroCan, renderers);
 
-body.appendChild(heroCan);
+   body.appendChild(heroCan);
 
-window.setInterval('level1.tick()', 50);
+   window.setInterval('level1.tick()', 50);
+   return;
+}
 
 function bulletMaker() {
 	var bulletList = new BulletList();
